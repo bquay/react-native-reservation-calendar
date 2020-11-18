@@ -1,17 +1,9 @@
 {
-  "name": "react-native-week-view",
+  "name": "react-native-reservation-calendar",
   "version": "0.1.1",
-  "description": "Week View Calendar for React Native",
+  "description": "Room Reservation - Week View Calendar for React Native",
   "main": "index.js",
-  "author": "Hoang Nguyen (https://github.com/hoangnm)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hoangnm/react-native-week-view.git"
-  },
-  "bugs": {
-    "url": "https://github.com/hoangnm/react-native-week-view/issues"
-  },
+  "author": "Brendan Quay (https://github.com/bquay)",
   "keywords": [
     "android",
     "ios",
@@ -21,7 +13,6 @@
     "weekview",
     "calendar"
   ],
-  "homepage": "https://github.com/hoangnm/react-native-week-view#readme",
   "scripts": {
     "lint": "eslint ./src *.js"
   },

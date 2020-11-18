@@ -255,7 +255,6 @@ export default class WeekView extends Component {
             showTitle={showTitle}
             style={headerStyle}
             textStyle={headerTextStyle}
-            numberOfDays={numberOfDays}
             selectedDate={currentMoment}
           />
           <VirtualizedList

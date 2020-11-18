@@ -103,11 +103,7 @@ const styles = StyleSheet.create({
   },
   hourText: {
     color: 'black',
-  },
-  eventContainer: {
-    borderWidth: 1,
-    borderColor: 'black',
-  },
+  }
 });
 
 export default App;
