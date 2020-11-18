@@ -74,8 +74,9 @@ export default class WeekView extends Component {
     for (let timer = 0; timer < MINUTES_IN_DAY; timer += minutesStep) {
       let minutes = timer % 60;
       if (minutes < 10) minutes = `0${minutes}`;
-      const hour = Math.floor(timer / 60);
-      const timeString = `${hour}:${minutes}`;
+      const hour = Math.floor(timer / 60) % 12 || 12;
+      const ampm = timer < 720 ? 'am' : 'pm'
+      const timeString = `${hour}:${minutes}${ampm}`;
       times.push(timeString);
     }
     return times;
