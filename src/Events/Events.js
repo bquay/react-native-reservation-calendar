@@ -23,19 +23,19 @@ const MIN_ITEM_WIDTH = 4;
 const ALLOW_OVERLAP_SECONDS = 2;
 
 const areEventsOverlapped = (event1, event2) => {
-  const endDate = moment(event1.endDate);
-  endDate.subtract(ALLOW_OVERLAP_SECONDS, 'seconds');
-  return endDate.isSameOrAfter(event2.startDate);
+  const end = moment(event1.end);
+  end.subtract(ALLOW_OVERLAP_SECONDS, 'seconds');
+  return end.isSameOrAfter(event2.start);
 };
 
 class Events extends PureComponent {
   getStyleForEvent = (item) => {
-    const startDate = moment(item.startDate);
-    const startHours = startDate.hours();
-    const startMinutes = startDate.minutes();
+    const start = moment(item.start);
+    const startHours = start.hours();
+    const startMinutes = start.minutes();
     const totalStartMinutes = startHours * MINUTES_IN_HOUR + startMinutes;
     const top = this.minutesToYDimension(totalStartMinutes);
-    const deltaMinutes = moment(item.endDate).diff(item.startDate, 'minutes');
+    const deltaMinutes = moment(item.end).diff(item.start, 'minutes');
     const height = this.minutesToYDimension(deltaMinutes);
     const width = this.getEventItemWidth();
 

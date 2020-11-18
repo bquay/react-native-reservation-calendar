@@ -26,7 +26,7 @@ const Event = ({
       {EventComponent ? (
         <EventComponent event={event} position={position} />
       ) : (
-        <Text style={styles.description}>{event.description}</Text>
+        <Text style={styles.description}>{event.room.name}</Text>
       )}
     </TouchableOpacity>
   );
@@ -36,8 +36,15 @@ const eventPropType = PropTypes.shape({
   color: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   description: PropTypes.string,
-  startDate: PropTypes.instanceOf(Date).isRequired,
-  endDate: PropTypes.instanceOf(Date).isRequired,
+  start: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date).isRequired,
+    PropTypes.string.isRequired,
+  ]),
+  end: PropTypes.oneOfType([
+    PropTypes.instanceOf(Date).isRequired,
+    PropTypes.string.isRequired,
+  ]),
+  room: PropTypes.object,
 });
 
 const positionPropType = PropTypes.shape({
