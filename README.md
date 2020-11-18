@@ -3,11 +3,11 @@
 ## Summary
 After reading through the challenge and making sure I understood the requirements, I searched for similar libraries or packages that might have some of the functionality I would need if this were a long-term project.
 
-I found several libraries and did some analysis on them to decide that react-native-week-view (the repo I forked from) was the most suitable for this interview given the time constraints.
+I found several libraries and did some analysis to decide that react-native-week-view (the repo I forked from) was the most suitable for this interview given the time constraints.
 
-I made several modifications to conform the existing library to the given Cove data structure while keeping it generalized for further development.
+I made several modifications to conform the existing library to the given Cove Reservation data structure while keeping it generalized for further development.
 
-I am very pleased with my decision to go with this library as a basde for the project as it is very straightforward to modify. During my initial assesment I thought this might not be good for long-term use but, I think given what I know now it very well could be.
+I am very pleased with my decision to go with this library as a base for the project as it is very straightforward to modify. During my initial assesment I thought this might not be good for long-term use but, I think given what I know now it very well could be.
 
 ## Instructions
 To run this project
