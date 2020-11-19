@@ -10,7 +10,6 @@ import {
 import moment from 'moment';
 import memoizeOne from 'memoize-one';
 
-import Event from '../Event/Event';
 import Events from '../Events/Events';
 import Header from '../Header/Header';
 import Title from '../Title/Title';
@@ -178,48 +177,6 @@ export default class WeekView extends Component {
     return prependMostRecent ? initialDates.reverse() : initialDates;
   };
 
-  sortEventsByDate =(events) => {
-    // Stores the events hashed by their date
-    // For example: { "2020-02-03": [event1, event2, ...] }
-    // If an event spans through multiple days, adds the event multiple times
-    const sortedEvents = {};
-    events.forEach((event, index) => {
-      const start = moment(event.start);
-      const end = moment(event.end);
-
-      for (
-        let date = moment(start);
-        date.isSameOrBefore(end, 'days');
-        date.add(1, 'days')
-      ) {
-        // Calculate actual start and end dates
-        const startOfDay = moment(date).startOf('day');
-        const endOfDay = moment(date).endOf('day');
-        const actualStartDate = moment.max(start, startOfDay);
-        const actualEndDate = moment.min(end, endOfDay);
-
-        // Add to object
-        const dateStr = date.format(DATE_STR_FORMAT);
-        if (!sortedEvents[dateStr]) {
-          sortedEvents[dateStr] = [];
-        }
-        sortedEvents[dateStr].push({
-          ...event,
-          index,
-          start: actualStartDate.toDate(),
-          end: actualEndDate.toDate(),
-        });
-      }
-    });
-    // For each day, sort the events by the minute (in-place)
-    Object.keys(sortedEvents).forEach((date) => {
-      sortedEvents[date].sort((a, b) => {
-        return moment(a.start).diff(b.start, 'minutes');
-      });
-    });
-    return sortedEvents;
-  }
-
   getListItemLayout = (index) => ({
     length: CONTAINER_WIDTH,
     offset: CONTAINER_WIDTH * index,
@@ -245,7 +202,6 @@ export default class WeekView extends Component {
     } = this.props;
     const { currentMoment, initialDates } = this.state;
     const times = this.calculateTimes(hoursInDisplay);
-    const eventsByDate = this.sortEventsByDate(events);
     const horizontalInverted =
       (prependMostRecent && !rightToLeft) ||
       (!prependMostRecent && rightToLeft);
@@ -302,7 +258,7 @@ export default class WeekView extends Component {
                 return (
                   <Events
                     times={times}
-                    eventsByDate={eventsByDate}
+                    eventsByDate={events}
                     initialDate={item}
                     numberOfDays={numberOfDays}
                     onEventPress={onEventPress}
@@ -341,7 +297,7 @@ export default class WeekView extends Component {
 }
 
 WeekView.propTypes = {
-  events: PropTypes.arrayOf(Event.propTypes.event),
+  events: PropTypes.object,
   formatDateHeader: PropTypes.string,
   numberOfDays: PropTypes.oneOf(availableNumberOfDays).isRequired,
   onSwipeNext: PropTypes.func,

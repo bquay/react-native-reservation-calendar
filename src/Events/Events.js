@@ -150,8 +150,8 @@ class Events extends PureComponent {
     const hour = Math.floor(this.yToHour(locationY - CONTENT_OFFSET));
 
     const date = moment(initialDate).add(dayIndex, 'day').toDate();
-
-    onGridClick(event, hour, date);
+    date.setHours(hour)
+    onGridClick(date);
   };
 
   render() {

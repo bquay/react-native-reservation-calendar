@@ -11,8 +11,12 @@
     "sync": "/usr/bin/rsync -v -a ../src ./node_modules/react-native-week-view/"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^2.6.0",
     "react": "16.11.0",
     "react-native": "0.62.0",
+    "react-native-dropdown-picker": "^3.7.1",
+    "react-native-modal-datetime-picker": "^9.1.0",
+    "react-native-vector-icons": "^7.1.0",
     "react-native-week-view": "file:../"
   },
   "devDependencies": {
