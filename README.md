@@ -24,7 +24,7 @@ To run this project
 - [x] Auto select reservation colors
 - [x] Async get data from API
 - [x] Add CRUD functions
+- [x] Cleanup code 
 - [ ] Handle reservation conflicts
-- [ ] Cleanup code 
 - [ ] Add Redux + Sagas structure*
 - [ ] Add Tests*
