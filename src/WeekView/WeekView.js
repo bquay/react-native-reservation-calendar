@@ -178,12 +178,12 @@ export default class WeekView extends Component {
     return prependMostRecent ? initialDates.reverse() : initialDates;
   };
 
-  sortEventsByDate = memoizeOne((events) => {
+  sortEventsByDate =(events) => {
     // Stores the events hashed by their date
     // For example: { "2020-02-03": [event1, event2, ...] }
     // If an event spans through multiple days, adds the event multiple times
     const sortedEvents = {};
-    events.forEach((event) => {
+    events.forEach((event, index) => {
       const start = moment(event.start);
       const end = moment(event.end);
 
@@ -205,6 +205,7 @@ export default class WeekView extends Component {
         }
         sortedEvents[dateStr].push({
           ...event,
+          index,
           start: actualStartDate.toDate(),
           end: actualEndDate.toDate(),
         });
@@ -217,7 +218,7 @@ export default class WeekView extends Component {
       });
     });
     return sortedEvents;
-  });
+  }
 
   getListItemLayout = (index) => ({
     length: CONTAINER_WIDTH,

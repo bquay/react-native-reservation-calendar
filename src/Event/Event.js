@@ -34,6 +34,7 @@ const Event = ({
 
 const eventPropType = PropTypes.shape({
   color: PropTypes.string,
+  index: PropTypes.number,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   description: PropTypes.string,
   start: PropTypes.oneOfType([
