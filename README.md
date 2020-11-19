@@ -11,12 +11,12 @@ I am very pleased with my decision to go with this library as a base for the pro
 
 ## Instructions
 To run this project
-- 1. CD into the repo and "yarn"
-- 2. CD into /exmaple and "yarn"
-- 3. CD into /ios and "pod install"
-- 4. CD back into /example
---  4.a To run on iOS - "yarn ios"
---  4.b To run on Android - "yarn android"
+1. CD into the repo and "yarn"
+2. CD into /exmaple and "yarn"
+3. CD into /ios and "pod install"
+4. CD back into /example
+-  To run on iOS - "yarn ios"
+-  To run on Android - "yarn android"
 
 ## TODO
 - [x] Convert 12hr time to 24hr time
